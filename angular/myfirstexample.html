@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="angularjs.min.js"></script>
+    <title></title>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="HelloController">
+        <h2> Welcome {{helloTo.title}} to the world of Turotialspoint!</h2>
+    </div>
+    <script>
+        angular.module("myapp",[]).controller("HelloController", function($scope){
+            $scope.helloTo = {};
+            $scope.helloTo.title = "AngularJS";
+        });
+    </script>
+</body>
+</html>
