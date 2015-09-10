@@ -4,3 +4,5 @@ target
 
 *.pyc
 .idea
+*.py,cover
+.coverage
