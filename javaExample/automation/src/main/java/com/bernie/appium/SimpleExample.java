@@ -42,7 +42,7 @@ public class SimpleExample {
         WebElement ele = (WebElement) driver.findElementsByAndroidUIAutomator("new UiSelector()" +
                 ".className(\"android.widget.TextView\").text(\"安装\")").get(0);
         ele.click();
+        driver.openNotifications();
         driver.quit();
-
     }
 }
