@@ -1,0 +1,24 @@
+"3.10.1 (created: 2015/08/25 00:41:59)
+
+source! "C:\\Users\\bida\\_vimperatorrc.local"
+
+" vim: set ft=vimperator:
+
+" Mappings
+noremap j 5j
+noremap k 5k
+noremap <C-u> <C-v><C-u>
+noremap <C-s> <C-c>
+noremap <C-c> <C-v><C-c>
+noremap <C-a> <C-v><C-a>c
+noremap <C-c> <C-v><C-c>c
+noremap <C-v> <C-v><C-v>c
+noremap <C-x> <C-v><C-x>i
+noremap <C-a> <C-v><C-a>i
+noremap <C-c> <C-v><C-c>i
+noremap <C-v> <C-v><C-v>i
+noremap <C-x> <C-v><C-x>i
+noremap <C-z> <C-v><C-z>" PassThrough gmail and greaderautocmd LocationChange .* js modes.passAllKeys = /.*
+(mail/.google/.com|www/.google/.com//reader).*/.test(buffer.URL)
+set titlestring=Mozilla Firefox
+source! ~/_vimperatorrc.local

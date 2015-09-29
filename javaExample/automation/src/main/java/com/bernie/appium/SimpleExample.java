@@ -17,7 +17,8 @@ public class SimpleExample {
         cap.setCapability("app", "e:/example.apk");
         cap.setCapability("unicodeKeyboard", "true");
         cap.setCapability("resetKeyboard", "true");
-        cap.setCapability("deviceName", "huawei-plk_ul00-W8R0215813002079");
+//        cap.setCapability("deviceName", "huawei-plk_ul00-W8R0215813002079");
+        cap.setCapability("deviceName", "192.168.120.91:5555");
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
