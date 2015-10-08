@@ -1,5 +1,8 @@
 package com.bernie;
 
+import org.apache.jmeter.config.Arguments;
+import org.apache.jmeter.samplers.SampleResult;
+
 /**
  * Created by bida on 2015/9/2.
  */
