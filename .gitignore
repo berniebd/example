@@ -2,7 +2,11 @@
 target
 *.iml
 
+
 *.pyc
 .idea
 *.py,cover
 .coverage
+
+*.png
+*.jpg
