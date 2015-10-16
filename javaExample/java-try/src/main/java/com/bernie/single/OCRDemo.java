@@ -51,7 +51,8 @@ public class OCRDemo {
         f.write(response.getBytes());
         f.close();
 
-        String randCode = e.discern(new File(imagePath));
+        String randCode = "";
+        randCode = e.discern(new File(imagePath));
         System.out.println(randCode);
 
         return randCode;
