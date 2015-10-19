@@ -1,5 +1,6 @@
 package com.bernie.db;
 
+
 import redis.clients.jedis.Jedis;
 
 /**

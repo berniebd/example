@@ -15,6 +15,7 @@ class Example extends Simulation {
     .check(status.is(200))
     .check(status.in(201,202))
     .check(bodyString.is("1234"))
+    .check(regex("123").exists)
     ).pace(5)
     }.exitHereIfFailed
   val method_3 = exec(http("method_3").get(uri + "/docs/2.0.0-RC2/general/scenario.html")).pause(1,10)
