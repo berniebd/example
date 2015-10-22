@@ -1,5 +1,3 @@
-package com.bernie.kafka;
-
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
@@ -47,8 +45,10 @@ public class KafkaJmeterSampler extends AbstractJavaSamplerClient {
             producer.send(new KeyedMessage<String, String>(javaSamplerContext.getParameter("topic"),
                     javaSamplerContext.getParameter("message")));
         }
-
+        results.setResponseMessage("success");
         results.sampleEnd();
+        results.setSuccessful(true);
+        results.setResponseCodeOK();
         return results;
     }
 
