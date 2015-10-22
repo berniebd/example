@@ -1,3 +1,5 @@
+package com.bernie.gatling
+
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
@@ -27,7 +29,7 @@ class Parameterization extends Simulation{
   }
 
   val scn = scenario("parameterization")
-    .exec(feed(csv("foo.csv").queue)
+    .exec(feed(csv("gatling/foo.csv").queue)
       .exec(http("post")
         .post("http://10.3.254.23:8080/dangwebx/security_check_")
         .formParam("username_", "${username}")
