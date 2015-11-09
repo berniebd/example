@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="angularjs.min.js"></script>
+    <script src="angular147.min.js"></script>
     <title></title>
 </head>
 <body ng-app="myapp">
     <div ng-controller="HelloController">
         <h2> Welcome {{helloTo.title}} to the world of Turotialspoint!</h2>
     </div>
+    <div ng-controller="secondController">
+        <h2>Second Controller Example: {{params.title}}</h2>
+    </div>
     <script>
-        angular.module("myapp",[]).controller("HelloController", function($scope){
-            $scope.helloTo = {};
-            $scope.helloTo.title = "AngularJS";
-        });
+//        var myapp = angular.module("myapp", []);
+//        myapp.controller("secondController", function($scope){
+//            $scope.params = {};
+//            $scope.params.title = "Multiply Controller";
+//        });
+//        myapp.controller('HelloController', function($scope){
+//            $scope.helloTo = {};
+//            $scope.helloTo.title="AngularJS";
+//        });
+        angular.module("myapp",[])
+                .controller("HelloController", function($scope){
+                    $scope.helloTo = {};
+                    $scope.helloTo.title = "AngularJS";
+                }).controller("secondController", function($scope){
+                    $scope.params = {};
+                    $scope.params.title = "Multiply Controller";
+                });
     </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import unittest
+import nose
 from nose.tools.nontrivial import with_setup
 
 __author__ = 'bida'
@@ -10,30 +12,30 @@ __author__ = 'bida'
 #     f = open('c:/teardownmodule.txt', 'a')
 #     f.write('teardown module\n')
 
-def setup():
-    f = open('c:/setup.txt', 'a')
-    f.write('setup method\n')
+# def setup():
+#     f = open('c:/setup.txt', 'a')
+#     f.write('setup method\n')
+#
+# def teardown():
+#     f = open('c:/teardown.txt', 'a')
+#     f.write('teardown method\n')
+#
+# def start():
+#     f = open('c:/setup.txt', 'a')
+#     f.write('customer setup method\n')
+#
+# def end():
+#     f = open('c:/teardown.txt', 'a')
+#     f.write('customer teardown method\n')
+#
+# @with_setup(start, end)
+# def test_method_4():
+#     print 'test method 4'
+#     assert False
 
-def teardown():
-    f = open('c:/teardown.txt', 'a')
-    f.write('teardown method\n')
-
-def start():
-    f = open('c:/setup.txt', 'a')
-    f.write('customer setup method\n')
-
-def end():
-    f = open('c:/teardown.txt', 'a')
-    f.write('customer teardown method\n')
-
-@with_setup(start, end)
-def test_method_4():
-    print 'test method 4'
-    assert False
-
-def test_method_5():
-    print 'test method 5'
-    assert False
+# def test_method_5():
+#     print 'test method 5'
+#     assert False
 
 class TestClass:
     @classmethod
@@ -54,7 +56,11 @@ class TestClass:
         f = open('c:/teardown.txt', 'a')
         f.write('teardown method in class\n')
 
+    # @unittest.skip("skip")
+    # @unittest.skipIf(2 > 1, "skipif")
+    # @unittest.skipUnless(not (2 > 1), "skipunless")
     def test_method(self):
+        # raise nose.SkipTest()
         print 'test method 1'
         assert False
 
@@ -62,8 +68,14 @@ class TestClass:
         print 'test method 2'
         assert False
 
-class TestClass2:
-    def test_method_3(self):
-        print 'test method 3'
-        assert False
+    # @unittest.expectedFailure
+    def test_expect_error(self):
+        print 'expectedFailure'
+        # raise StandardError('expectedFailure')
+        # assert False
+
+# class TestClass2:
+#     def test_method_3(self):
+#         print 'test method 3'
+#         assert False
 
