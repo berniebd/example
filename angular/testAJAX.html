@@ -21,7 +21,7 @@
 </head>
 <body>
 <h2>AngularJS Sample Application</h2>
-<div ng-app = "" ng-controller = "studentController">
+<div ng-app="mainApp" ng-controller="studentController">
 
     <table>
         <tr>
@@ -39,13 +39,18 @@
 </div>
 
 <script>
-    function studentController($scope,$http) {
-        var url = "data.txt";
+    var mainApp = angular.module("mainApp", []);
+    mainApp.controller("studentController", function($scope, $http){
+        var url = "http://192.168.98.45:8080/angular/data.json";
 
-        $http.get(url).success( function(response) {
-            $scope.students = response;
+//        $http({url: "data.json", method: "GET"}).success( function(data) {
+//            $scope.students = data;
+//        });
+        $http.get("http://192.168.98.45:9080/api/mytest").success(function(data){
+            $scope.students = data;;
+            alert(data);
         });
-    }
+    });
 </script>
 
 <script src = "angular147.min.js"></script>
