@@ -35,25 +35,24 @@ public class DubboClientTester {
         ExecutorService es = Executors.newFixedThreadPool(50, new NamedThreadFactory("My Test"));
         List<Callable<String>> tasks = new ArrayList<Callable<String>>();
         for (int i = 0; i < 100000;++i) {
-           tasks.add(new Callable<String>() {
-               @Override
-               public String call() throws Exception {
-                   System.out.println("run");
-                   System.out.println(demoService.sayHello("bernie"));
-                   System.out.println("run success");
-                   return null;
-               }
-           });
+            tasks.add(() -> {
+                System.out.println("run");
+                System.out.println(demoService.sayHello("bernie"));
+                System.out.println("run success");
+                return null;
+            });
         }
 
         List<Future<String>> futureList = es.invokeAll(tasks);
-        for (Future<String> future : futureList) {
+        futureList.stream().forEach(e -> {
             try {
-                String result = future.get();
-            } catch (ExecutionException e){
-                e.printStackTrace();
+                System.out.println(e.get());
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            } catch (ExecutionException e1) {
+                e1.printStackTrace();
             }
-        }
+        });
 
         es.shutdown();
         System.out.println("end");

@@ -36,6 +36,7 @@ public class DubboServerTester {
         service.setVersion("1.0.0");
 
         service.export();
+        service.getExportedUrls().stream().forEach(System.out::println);
         System.out.println("press any key to exit.");
         System.in.read();
     }

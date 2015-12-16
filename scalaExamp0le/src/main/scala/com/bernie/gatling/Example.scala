@@ -51,6 +51,8 @@ class Example extends Simulation {
     .uniformRandomSwitch(exec(Request1.method_1), exec(method_2))
     .roundRobinSwitch(exec(Request1.method_1), exec(method_2))
 
+  val scn4 = scenario("Rendezvous").rendezVous(100);
+
     var isAsLongAs = true
     var ids = Seq(1,2,3)
     val scn2 = scenario("loop")

@@ -15,6 +15,8 @@ public class Consumer {
         String hello = demoService.sayHello(name);
         System.out.println(hello);
         System.out.println(Thread.currentThread().getName() + " --> " + hello);
-        context.close();
+//        context.destroy();
+        context.stop();
+//        context.close();
     }
 }
