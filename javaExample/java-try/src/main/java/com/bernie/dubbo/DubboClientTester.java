@@ -26,36 +26,37 @@ public class DubboClientTester {
         reference.setVersion("1.0.0");
 
         final DemoService demoService = reference.get();
-
-        long begin = System.currentTimeMillis();
         System.out.println(demoService.sayHello("bernie"));
-        long end = System.currentTimeMillis();
-        System.out.println("cost: " + (end - begin));
 
-        ExecutorService es = Executors.newFixedThreadPool(50, new NamedThreadFactory("My Test"));
-        List<Callable<String>> tasks = new ArrayList<Callable<String>>();
-        for (int i = 0; i < 100000;++i) {
-            tasks.add(() -> {
-                System.out.println("run");
-                System.out.println(demoService.sayHello("bernie"));
-                System.out.println("run success");
-                return null;
-            });
-        }
-
-        List<Future<String>> futureList = es.invokeAll(tasks);
-        futureList.stream().forEach(e -> {
-            try {
-                System.out.println(e.get());
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            } catch (ExecutionException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-        es.shutdown();
-        System.out.println("end");
-        System.in.read();
+//        long begin = System.currentTimeMillis();
+//        System.out.println(demoService.sayHello("bernie"));
+//        long end = System.currentTimeMillis();
+//        System.out.println("cost: " + (end - begin));
+//
+//        ExecutorService es = Executors.newFixedThreadPool(50, new NamedThreadFactory("My Test"));
+//        List<Callable<String>> tasks = new ArrayList<Callable<String>>();
+//        for (int i = 0; i < 100000;++i) {
+//            tasks.add(() -> {
+//                System.out.println("run");
+//                System.out.println(demoService.sayHello("bernie"));
+//                System.out.println("run success");
+//                return null;
+//            });
+//        }
+//
+//        List<Future<String>> futureList = es.invokeAll(tasks);
+//        futureList.stream().forEach(e -> {
+//            try {
+//                System.out.println(e.get());
+//            } catch (InterruptedException e1) {
+//                e1.printStackTrace();
+//            } catch (ExecutionException e1) {
+//                e1.printStackTrace();
+//            }
+//        });
+//
+//        es.shutdown();
+//        System.out.println("end");
+//        System.in.read();
     }
 }
