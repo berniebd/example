@@ -12,8 +12,14 @@ import java.net.URL;
 public class IOSExample {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
-        IOSDriver driver = new IOSDriver(new URL(""), cap);
-        driver.findElementByAccessibilityId("");
-        driver.findElementByIosUIAutomation("");
+        cap.setCapability("deviceName", "iPhone 6s");
+        cap.setCapability("platformName", "iOS");
+        cap.setCapability("platformVersion", "9.1");
+//        cap.setCapability("browserName", "safari");
+        cap.setCapability("dd", "true");
+        cap.setCapability("app", "/Users/bernie/Downloads/jdmobile.ipa");
+//        cap.setCapability("uiid", "C4A9D8F3-C9B3-4B58-9508-E4961481BBBE");
+        IOSDriver driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+//        driver.get("http://www.baidu.com");
     }
 }

@@ -14,11 +14,13 @@ public class SimpleExample {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "android");
-        cap.setCapability("app", "e:/example.apk");
+//        cap.setCapability("app", "e:/example.apk");
+        cap.setCapability("app", "/Users/bernie/Downloads/example.apk");
         cap.setCapability("unicodeKeyboard", "true");
         cap.setCapability("resetKeyboard", "true");
 //        cap.setCapability("deviceName", "huawei-plk_ul00-W8R0215813002079");
-        cap.setCapability("deviceName", "192.168.120.91:5555");
+        cap.setCapability("deviceName", "Nexus_5_API_21");
+//        cap.setCapability("deviceName", "192.168.120.91:5555");
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -36,7 +38,9 @@ public class SimpleExample {
 
         driver.navigate().back();
 
-        driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.wandoujia.phoenix2:id/search_box_close\")").click();
+        driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.wandoujia.phoenix2:id/search_text\")").click();
+
+
         driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.wandoujia.phoenix2:id/search_box_edit\")")
                 .sendKeys("腾讯新闻");
         driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.wandoujia.phoenix2:id/search_button\")").click();

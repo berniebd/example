@@ -41,14 +41,13 @@
 <script>
     var mainApp = angular.module("mainApp", []);
     mainApp.controller("studentController", function($scope, $http){
-        var url = "http://192.168.98.45:8080/angular/data.json";
+        var url = "data.json";
 
 //        $http({url: "data.json", method: "GET"}).success( function(data) {
 //            $scope.students = data;
 //        });
-        $http.get("http://192.168.98.45:9080/api/mytest").success(function(data){
-            $scope.students = data;;
-            alert(data);
+        $http.get("http://192.168.988.45:9080/api/mytest").success(function(data){
+            $scope.students = data;
         });
     });
 </script>
