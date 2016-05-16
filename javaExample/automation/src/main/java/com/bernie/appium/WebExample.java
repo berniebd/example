@@ -16,11 +16,11 @@ public class WebExample {
     public static void main(String[] args) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-//        cap.setCapability("deviceName", "Nexus_5_API_21");
-        cap.setCapability("deviceName", "huawei-plk_ul00-W8R0215813002079");
+        cap.setCapability("deviceName", "Nexus_5_API_21");
+//        cap.setCapability("deviceName", "huawei-plk_ul00-W8R0215813002079");
 
 
-
+//
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("http://www.baidu.com");
