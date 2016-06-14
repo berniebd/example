@@ -1,6 +1,7 @@
 package com.bernie.single;
 
 import cn.easyproject.easyocr.EasyOCR;
+import cn.easyproject.easyocr.ImageType;
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebRequest;
@@ -14,18 +15,19 @@ import org.apache.http.util.EntityUtils;
 import org.xml.sax.SAXException;
 
 import java.io.*;
+import java.util.Date;
 
 /**
  * Created by bida on 2015/10/13.
  */
 public class OCRDemo {
     private EasyOCR e;
-    private static final String randCodeUrl = "http://10.3.254.23:8080/dangwebx/randCodeImage?a=1444784364985";
-    private static final String imagePath = "d:\\tmp.png";
+    private static final String randCodeUrl = String.format("https://dimtest.insaic.com/captcha?t=%s", new Date().getTime());
+    private static final String imagePath = "c:\\Workspace\\tmp.png";
 
     public OCRDemo() {
         e = new EasyOCR();
-        e.setTesseractPath("D:\\tools\\Tesseract-OCR\\tesseract.exe");
+//        e.setTesseractPath("C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe");
     }
 
     public String getRandCodeByHttpComponents() throws IOException {
@@ -36,7 +38,8 @@ public class OCRDemo {
         entity.writeTo(new FileOutputStream(new File(imagePath)));
         EntityUtils.consume(entity);
 
-        String randCode = e.discern(new File(imagePath));
+//        String randCode = e.discern(new File(imagePath));
+        String randCode = e.discernAndAutoCleanImage(imagePath, ImageType.CAPTCHA_WHITE_CHAR);
         System.out.println(randCode);
 
         return randCode;
@@ -61,6 +64,6 @@ public class OCRDemo {
     public static void main(String[] args) throws IOException, SAXException {
         OCRDemo demo = new OCRDemo();
         demo.getRandCodeByHttpComponents();
-        demo.getRandCodeByHttpunit();
+//        demo.getRandCodeByHttpunit();
     }
 }
