@@ -9,12 +9,22 @@ import com.meterware.httpunit.WebResponse;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.ssl.*;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
+import org.apache.jmeter.config.KeystoreConfig;
 import org.xml.sax.SAXException;
 
+import javax.net.ssl.SSLContext;
 import java.io.*;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Date;
 
 /**
@@ -23,15 +33,18 @@ import java.util.Date;
 public class OCRDemo {
     private EasyOCR e;
     private static final String randCodeUrl = String.format("https://dimtest.insaic.com/captcha?t=%s", new Date().getTime());
-    private static final String imagePath = "c:\\Workspace\\tmp.png";
+    private static final String imagePath = "/Users/bernie/Documents/tmp.png";
 
     public OCRDemo() {
         e = new EasyOCR();
 //        e.setTesseractPath("C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe");
     }
 
-    public String getRandCodeByHttpComponents() throws IOException {
-        CloseableHttpClient client = HttpClients.createDefault();
+    public String getRandCodeByHttpComponents() throws IOException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException, CertificateException {
+        SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (x509Certificates, s) -> true).build();
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext);
+        CloseableHttpClient client = HttpClients.custom().setSSLSocketFactory(sslsf).build();
+
         HttpGet httpGet = new HttpGet(randCodeUrl);
         CloseableHttpResponse response = client.execute(httpGet);
         HttpEntity entity = response.getEntity();
@@ -61,7 +74,7 @@ public class OCRDemo {
         return randCode;
     }
 
-    public static void main(String[] args) throws IOException, SAXException {
+    public static void main(String[] args) throws IOException, SAXException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException, CertificateException {
         OCRDemo demo = new OCRDemo();
         demo.getRandCodeByHttpComponents();
 //        demo.getRandCodeByHttpunit();
