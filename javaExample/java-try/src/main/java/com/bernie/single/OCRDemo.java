@@ -33,7 +33,7 @@ import java.util.Date;
 public class OCRDemo {
     private EasyOCR e;
     private static final String randCodeUrl = String.format("https://dimtest.insaic.com/captcha?t=%s", new Date().getTime());
-    private static final String imagePath = "/Users/bernie/Documents/tmp.png";
+    private static final String imagePath = "c:\\Workspace\\tmp.png";
 
     public OCRDemo() {
         e = new EasyOCR();
@@ -52,7 +52,7 @@ public class OCRDemo {
         EntityUtils.consume(entity);
 
 //        String randCode = e.discern(new File(imagePath));
-        String randCode = e.discernAndAutoCleanImage(imagePath, ImageType.CAPTCHA_WHITE_CHAR);
+        String randCode = e.discernAndAutoCleanImage(imagePath, ImageType.CAPTCHA_NORMAL);
         System.out.println(randCode);
 
         return randCode;

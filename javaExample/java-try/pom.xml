@@ -86,7 +86,7 @@
         <dependency>
             <groupId>cn.easyproject</groupId>
             <artifactId>easyocr</artifactId>
-            <version>3.0.3-RELEASE</version>
+            <version>3.0.4-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -157,6 +157,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>fluent-hc</artifactId>
             <version>4.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.asprise.ocr</groupId>
+            <artifactId>java-ocr-api</artifactId>
+            <version>15.3.0.3</version>
         </dependency>
     </dependencies>
 </project>

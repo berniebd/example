@@ -29,7 +29,7 @@ public class SimpleExample {
 //        根据父元素获取同级元素
         driver.findElementByAndroidUIAutomator("new UiSelector().text(\"排行榜\")." +
                 "fromParent(new UiSelector().text(\"应用\"))").click();
-
+        driver.findElementByXPath("");
 //        获取子元素
         driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.wandoujia.phoenix2:id/tab_host\")" +
                 ".childSelector(new UiSelector().className(\"android.widget.TextView\").text(\"游戏\"))").click();
