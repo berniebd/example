@@ -9,5 +9,7 @@ def my_generator():
 
 if __name__ == '__main__':
     g = my_generator()
-    for i in g:
-        print(i)
+    print(next(g))
+    print(next(g))
+    print(next(g))
+    print(next(g))
