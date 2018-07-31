@@ -1,0 +1,11 @@
+{
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_02_tie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_02_untie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_03_tie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_03_untie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_tie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_untie_vehicle": true,
+  "testAppiumWechatT.py::TestYingkePersonalCenter::()::test_yingke_01": true,
+  "testAppiumWechatT.py::test_yingke": true,
+  "testAppiumWechatT.py::test_yingke_01": true
+}
