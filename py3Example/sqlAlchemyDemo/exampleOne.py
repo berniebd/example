@@ -7,7 +7,8 @@ __author__ = 'bida'
 
 from sqlalchemy import create_engine
 
-engine = create_engine('sqlite:///:memory:', echo=False)
+# engine = create_engine('sqlite:///:memory:', echo=False)
+engine = create_engine('sqlite:///demo.db', echo=False)
 Base = declarative_base()
 
 class User(Base):
@@ -38,8 +39,9 @@ session.add_all([
     User(name='mary', fullname='Mary Contrary', password='xxg427'),
     User(name='fred', fullname='Fred flinstone', password='blss')
 ])
-session.rollback()
-print(session.query(User).all())
+session.commit()
+# session.rollback()
+# print(session.query(User).all())
 # our_user = session.query(User).filter_by(name='mary').first()
 # our_users = session.query(User).order_by(User.password).all()
 # print(our_user)
