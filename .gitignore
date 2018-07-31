@@ -1,5 +1,8 @@
 *.class
 target
+*.log
+node_modules
+target
 *.iml
 
 
@@ -10,3 +13,4 @@ target
 
 *.png
 *.jpg
+*.JPEG
