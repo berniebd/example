@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function hh(){
+				var ws = new WebSocket("ws://192.168.2.1:5002/");
+				ws.onopen = function() {
+				   ws.send("Hello, world");
+				};
+				ws.onmessage = function (evt) {
+				   alert(evt.data);
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="Tornado WebSocket client" onclick="hh()">
+	</body>
+</html>

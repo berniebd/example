@@ -2,7 +2,7 @@
 # Created by bida on 2018/7/17
 
 import os
-# from flask import Flask, render_template_string
+# from flaskTry import Flask, render_template_string
 # from flask_babel import Babel
 from flask_babel import Babel
 
