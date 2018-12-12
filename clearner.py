@@ -13,8 +13,8 @@ app = Flask(__name__)
 @app.route('/clean', methods=['POST', 'GET'])
 def clean():
     if platform.system() == 'Windows':
-        os.system('taskkill /im chrome.exe')
-        os.system('taskkill /im chromedriver.exe')
+        os.system('taskkill /F /im chrome.exe')
+        os.system('taskkill /F /im chromedriver.exe')
     else:
         proc = subprocess.Popen(['pgrep', 'Chrome', 'chromedriver'], stdout=subprocess.PIPE)
         for pid in proc.stdout:
