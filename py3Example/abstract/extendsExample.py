@@ -5,10 +5,15 @@ class A(object):
     def show(self):
         print('method show in class A!')
 
+    def a(self):
+        print('a')
+
 
 class B(object):
     def show(self):
         print('method show in class B!')
+    def b(self):
+        print('b')
 
 class C(B, A):
 
@@ -16,4 +21,4 @@ class C(B, A):
         A.show(self)
 
 if __name__ == '__main__':
-    C().show()
+    C().a()

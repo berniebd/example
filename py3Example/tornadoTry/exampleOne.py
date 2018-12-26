@@ -25,22 +25,29 @@ class ExampleTwoHandler(RequestHandler):
     @gen.coroutine
     def get(self):
         for _ in range(5):
-            yield gen.sleep(1)
+            yield gen.sleep(3)
             self.write('zzzzzzzzzzzzz&lt;br&gt;')
             self.flush()
+        self.finish()
+
+class ExampleThreeHandler(RequestHandler):
+    @gen.coroutine
+    def post(self, *args, **kwargs):
+        print(self)
         self.finish()
 
 if __name__ == '__main__':
     application = Application([
         (r"/exampleOne", ExampleHandler),
         (r"/exampleTwo", ExampleTwoHandler),
+        (r"/exampleThree", ExampleThreeHandler)
     ], autoreload=True)
     # method one
     application.listen(5003)
     # method two
     # Application autoreload must be False
-    server = HTTPServer(application)
-    server.bind(5003)
-    server.start(4)
+    # server = HTTPServer(application)
+    # server.bind(5003)
+    # server.start(4)
 
     IOLoop.current().start()

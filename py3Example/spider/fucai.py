@@ -17,7 +17,7 @@ def crawl():
     }
     session = requests.Session()
     url = 'http://www.cwl.gov.cn/cwl_admin/kjxx/findKjxx/forIssue?name=ssq&code={0}{1}{2}'
-    for year in range(2013, 2019):
+    for year in range(2017, 2019):
         for period in range(140, 160):
             resp = session.get(url.format(year, '0'*(3-len(str(period))), period), headers=headers)
             if resp.json()['state'] == 1:

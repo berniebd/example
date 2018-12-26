@@ -25,3 +25,5 @@ def subtract(x, y):
     print(f'invoked by remote: subtracts {x}, {y}')
     return x - y
 
+if __name__ == '__main__':
+    app.start()

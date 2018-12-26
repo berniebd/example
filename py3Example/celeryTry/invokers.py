@@ -11,9 +11,11 @@ if __name__ == '__main__':
 
 
     r2 = adds.apply_async(('a', 'b'))
+    print(r2)
 
     r3 = adds.apply_async(('a', 'b'), link=[adds.s('cc'), adds.s('dd')])
-    print(r2)
+    print(r3)
+    print(r3)
 
     r4 = adds.apply_async(('a', 'b'))
     print(r4)

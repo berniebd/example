@@ -15,11 +15,11 @@ def ring():
     print(Arrow.now().format('YYYY-MM-DD HH:mm:ss.SSS'))
 
 if __name__ == '__main__':
-    PeriodicCallback(count, 1000).start()
-    IOLoop.current().start()
+    # PeriodicCallback(count, 1000).start()
+    # IOLoop.current().start()
 
     loop = IOLoop.current()
     print(Arrow.now().format('YYYY-MM-DD HH:mm:ss.SSS'))
     loop.call_at(time() + 10, ring)
-    loop.call_later(10, ring)
+    # loop.call_later(10, ring)
     loop.start()
